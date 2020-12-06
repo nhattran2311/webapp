@@ -1,0 +1,43 @@
+{% extends 'blog/layout/base.html' %}
+
+
+
+{% block content %}
+  <div id="container" style="width: 30%;">
+    <p>PIE CHART</p>
+    <canvas id="pie-chart"></canvas>
+  </div>
+  <input type="hidden" id="data" name="variable" value="{{data}}">
+  <input type="hidden" id="labels" name="variable" value="{{labels}}">
+  <script type="text/javascript">
+    var data_item =  document.getElementById("data").value;
+    var label_item =  document.getElementById("labels").value;
+    var config = {
+      type: 'pie',
+      data: {
+        datasets: [{
+            data: [10, 20, 30],
+            backgroundColor: [
+            '#696969', '#808080', '#A9A9A9', '#C0C0C0', '#D3D3D3'
+           ],
+           label: 'Population'
+        }],
+        labels: [
+        'Red',
+        'Yellow',
+        'Blue'
+        ]
+      },
+      options: {
+        responsive: true
+      }
+    };
+
+    window.onload = function() {
+      var ctx = document.getElementById('pie-chart').getContext('2d');
+      window.myPie = new Chart(ctx, config);
+    };
+
+  </script>
+
+{% endblock content %}

@@ -1,0 +1,62 @@
+{% extends 'blog/layout/base.html' %}
+
+
+{% block content %}
+
+
+<div class="row">
+  <div class="col-md-8">
+    {% for post in posts %}
+      <article class="media content-section">
+        <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
+        <div class="media-body">
+          <div class="article-metadata">
+            <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
+            <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+          </div>
+          <h3><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h3>
+          {% if post.content|wordcount < 200 %}
+          <p class="article-content">{{ post.content | safe }}</p>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+  <div class="col-md-4">
+    <article class="media content-section">
+      <div class="container">
+        <div class="content-list">
+          <div class="media mb-auto">
+            <img src="https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/08/normalTime.jpg" alt="..." width="100%" class="mr-3">
+          </div>
+        </div>
+        <div class="media-body">
+            <p>Hey there, my name is Nhat. I'm a passionate software developer , currently living in HO CHI MINH. I write about Python,
+              Django and Web Development on a weekly basis.</p> 
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+
+
+
+{% if is_paginated %}
+{% if page_obj.has_previous %}
+<a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+<a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+{% endif %}
+
+{% for num in page_obj.paginator.page_range %}
+{% if page_obj.numer == num%}
+<a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+{% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3'%}
+<a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+{% endif %}
+{% endfor%}
+{% if page_obj.has_next %}
+<a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+<a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+{% endif %}
+{% endif %}
+{% endblock content %}

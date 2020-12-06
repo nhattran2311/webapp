@@ -1,0 +1,25 @@
+{% load static %}
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {% if title %}
+    <title>S1mple is good - {{ title }}</title>
+    {% else %}
+    <title>S1mple is good</title>
+    {%endif%}
+
+    <!-- Font -->
+    <link rel="shortcut icon" href="{% static 'favicon_io/favicon.ico' %}" /> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+
+
+    <!-- CSS -->
+     <!-- Main styles for this application -->
+    <link rel="stylesheet" type="text/css" href="{% static 'dist/css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'dist/css/style.css' %}">
+    <!-- 3rd party JS for post content -->
+    <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+    <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>

@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include '../partials/head.html' %}
+    {% block meta %}
+    {% endblock %}
+</head>
+
+<body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden 
+{% if request.path == '/bistq/activejobs/' %} sidebar-hidden {% endif %} " >
+    {% include '../partials/topbar.html' %}
+
+    <div class="app-body">
+
+    {% include '../partials/sidebar.html' %}
+
+    <main class="main" >
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-md-12">
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+
+                </div>
+            </div>
+
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    </div>
+    {% include '../partials/footer.html' %}
+    {% include '../partials/scripts.html' %}
+
+
+    {% block jsscripts %}
+
+    {% endblock %}
+
+</body>
+</html>

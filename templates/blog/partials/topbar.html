@@ -1,0 +1,52 @@
+{% load static %}
+<header class="app-header navbar ">
+        <button class="navbar-toggler mobile-sidebar-toggler d-lg-none" type="button">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="/">
+        </a>
+        <button class="navbar-toggler sidebar-toggler d-md-down-none h-100 b-r-1 px-3" type="button" >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+
+       <ul class="nav navbar-nav ml-auto mr-4">
+        <a href="/#" class="nav-link mr-3"><i class="fa fa-search"></i> Search</a>
+        
+        {% if user.is_authenticated %}
+        <li class="nav-item dropdown pr-3">
+          <strong>{{ user.first_name|title }} {{ user.last_name|title }}</strong> 
+        </li>
+        <img class="rounded-circle avatar-img" src="{{ user.profile.image.url }} " alt="My Profile"> 
+        {% endif %}
+        <a class="nav-link nav-pill" href="{% url 'post-create' %}"  data-toggle="popover" title="Write Posts" >
+          <i class="fa fa-pencil-square-o nav-item  fa-1x"></i>
+        </a>
+        <li>
+          <a class="nav-link nav-pill avatar" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-user-o"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right">
+            <div class="dropdown-header text-center">
+              <strong>Account</strong>
+            </div>
+
+            {% if user.is_authenticated %}
+            <div class="divider"></div>
+            <div>
+              <a class="nav-item nav-link" href="{% url 'profile' %}">
+                <img class="rounded-circle avatar-img" src="{{ user.profile.image.url }} " alt="My Profile"> 
+              </a>
+           </div>
+            <strong> <a class="dropdown-item" href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> Logout</a> </strong>
+            </div>
+            {% else %}
+            <strong><a class="dropdown-item" href="{% url 'login' %}"><i class="fa fa-sign-in"></i>Login</a></strong>
+            <strong><a class="dropdown-item" href="{% url 'register' %}"><i class="fa fa-user-plus"></i>Register</a></strong>
+            {% endif %}
+        </li>
+
+      </ul>
+
+</header>
