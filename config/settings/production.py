@@ -2,7 +2,7 @@ from .base import *
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['sleepy-tor-10207.herokuapp.com']
+ALLOWED_HOSTS = ['.herokuapp.com']
 
 DATABASES = {
     'default': {
