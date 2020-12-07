@@ -14,7 +14,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '#!m2a$pija(3yo(1w*#ko%gjek7#5j-g7*w!1-^gwzyiuyo7mx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -60,7 +60,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, '../templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -89,16 +89,7 @@ AUTHENTICATION_BACKENDS = (
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'fantastic_db',
-        'USER': 'postgres',
-        'PASSWORD': 'Winter19!',
-        # 'HOST':'localhost',
-        # 'PORT':'5432',
-    }
-}
+
 
 
 # Password validation
@@ -147,11 +138,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_ROOT= os.path.join(BASE_DIR,'staticfiles')
+STATIC_ROOT= os.path.join(BASE_DIR,'../staticfiles')
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'static')
+    os.path.join(BASE_DIR,'../static')
 ]
 # STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 MEDIA_ROOT= os.path.join(BASE_DIR,'media')
