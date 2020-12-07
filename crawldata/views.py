@@ -30,7 +30,7 @@ def craw_data_viblo(request):
         data_craw = {
             'title':h1_val,
             'content':content,
-            'author': 8,
+            'author': 1,
         }
         return render(request, 'crawldata/craw_data_viblo.html', data_craw )
     return render(request, 'crawldata/craw_data_viblo.html')
