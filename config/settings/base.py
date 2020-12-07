@@ -85,10 +85,6 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth',
     'django.contrib.auth.backends.ModelBackend',
 )
-# Database
-# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
-
 
 
 # Password validation
@@ -143,7 +139,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'../static')
 ]
-# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 MEDIA_ROOT= os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
 
@@ -153,7 +148,7 @@ CLOUDINARY_STORAGE = {
     'API_SECRET': '6SdhgWAjbjHKUM4CunF_aGt43SE',
     # 'STATICFILES_MANIFEST_ROOT': os.path.join(BASE_DIR, 'staticfiles')
 }
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_IMAGE_BACKEND = "pillow"
@@ -182,10 +177,11 @@ EMAIL_HOST_PASSWORD = 'ygcpnshqrkgebaxz'
 SOCIAL_AUTH_GITHUB_KEY = '1708b009ee3c3a99b8c0'
 SOCIAL_AUTH_GITHUB_SECRET = '8ce4f42491253e959f726ac4a305430358077288'
 
-#activate heroku django
 
-django_heroku.settings(locals())
 
 mimetypes.add_type("application/javascript", ".js", True)
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+#activate heroku django
+django_heroku.settings(locals())
