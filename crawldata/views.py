@@ -38,7 +38,7 @@ def craw_data_viblo(request):
 @login_required
 def create_article(request):
     if request.method == 'POST':
-        r = requests.post('http://horiwebapp.herokuapp.com//api/view_post/', auth=('horizontal', 'Winter20!'), data=data_craw)
+        r = requests.post('https://horiwebapp.herokuapp.com//api/view_post/', auth=('horizontal', 'Winter20!'), data=data_craw)
         if r.status_code == 201:
             messages.success(request, f'Your data has been updated!')
             return render(request, 'crawldata/craw_data_viblo.html')
