@@ -44,6 +44,7 @@ def create_article(request):
             return render(request, 'crawldata/craw_data_viblo.html')
         else:
             messages.error(request,f'Error: cant updated your data!!!')
+            return render(request, 'crawldata/craw_data_viblo.html')
     else:
         return render(request, 'crawldata/craw_data_viblo.html')
     return render(request, 'blog/layout/base.html')
