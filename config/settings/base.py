@@ -183,7 +183,7 @@ EMAIL_HOST_PASSWORD = 'ygcpnshqrkgebaxz'
 SOCIAL_AUTH_GITHUB_KEY = '1708b009ee3c3a99b8c0'
 SOCIAL_AUTH_GITHUB_SECRET = '8ce4f42491253e959f726ac4a305430358077288'
 
-
+#activate heroku django
 
 django_heroku.settings(locals())
 
