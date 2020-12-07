@@ -11,7 +11,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '#!m2a$pija(3yo(1w*#ko%gjek7#5j-g7*w!1-^gwzyiuyo7mx'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 
 
@@ -144,8 +144,8 @@ MEDIA_URL = '/media/'
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'horiwebapp',
-    'API_KEY': '454539148182493',
-    'API_SECRET': '6SdhgWAjbjHKUM4CunF_aGt43SE',
+    'API_KEY': os.getenv('CLOUDINARY_STORAGE_API_KEY'),
+    'API_SECRET': os.getenv('CLOUDINARY_STORAGE_API_SECRET'),
     # 'STATICFILES_MANIFEST_ROOT': os.path.join(BASE_DIR, 'staticfiles')
 }
 
@@ -173,9 +173,9 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'horizontaldjango@gmail.com'
-EMAIL_HOST_PASSWORD = 'ygcpnshqrkgebaxz'
-SOCIAL_AUTH_GITHUB_KEY = '1708b009ee3c3a99b8c0'
-SOCIAL_AUTH_GITHUB_SECRET = '8ce4f42491253e959f726ac4a305430358077288'
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+SOCIAL_AUTH_GITHUB_KEY =  os.getenv('SOCIAL_AUTH_GITHUB_KEY')
+SOCIAL_AUTH_GITHUB_SECRET =  os.getenv('SOCIAL_AUTH_GITHUB_SECRET')
 
 
 
