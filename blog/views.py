@@ -33,7 +33,7 @@ class PostListView(ListView):
     template_name = 'blog/post/article.html' #chon duong link cho listview modelname/view_listtype.html
     context_object_name = 'posts' #goi list view tu context  cua home
     ordering = ['-date_posted'] #sap xep thu tu post tu ngay moi nhat
-    paginate_by = 12
+    paginate_by = 10
 
 
 class UserPostListView(ListView):
