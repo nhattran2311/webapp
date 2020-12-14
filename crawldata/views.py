@@ -53,3 +53,5 @@ def create_article(request):
             return render(request, 'crawldata/craw_data_viblo.html')
     else:
         return render(request, 'crawldata/craw_data_viblo.html')
+
+data_craw = ""
