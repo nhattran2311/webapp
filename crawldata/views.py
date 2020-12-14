@@ -47,7 +47,8 @@ def create_article(request):
         r = requests.post(API_URL, auth=(API_USER, API_PASSWORD), data=data_craw)
         if r.status_code == 201:
             messages.success(request, f'Your data has been updated!')
-            return render(request, 'blog/post/article.html')
+            data_craw = None
+            return render(request, 'crawldata/craw_data_viblo.html')
         else:
             messages.error(request,f'Wrong data format - status code : {r.status_code}',)
             return render(request, 'crawldata/craw_data_viblo.html')
