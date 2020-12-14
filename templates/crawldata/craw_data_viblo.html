@@ -5,19 +5,23 @@
 <div class="container">
     <div class="row">
         <div class="col-md-9">
-            <form class="form=group" action="{% url 'craw_data_viblo' %}", method="POST">
+            <form class="form=group", method="POST">
                 {% csrf_token %}
                 <br><br>
                 <p>Insert URL:
-                    <input type="text" name="web_link">
-                    <input type="submit" class="btn btn-primary btn-sm" name="submit">
-                </p>
 
+                    <input type="text" name="web_link">
+                    <input type="submit" formaction="{% url 'craw_data_viblo' %}" class="btn btn-primary btn-sm" name="submit">
+                    {% if title %}
+                    <input type="submit" formaction="{% url 'create_article' %}" class="btn btn-primary btn-sm" name="Submit to Sharing" value="Submit to Sharing">
+                    {% endif %}
+                </p>
                 {% if title %}
-                <!-- output -->
+
                 <div class="output">
-                    <h1> DATA Crawling: </h1>
-                    <h2>{{title}}</h2>
+                    <h2> You can press button "Submit to Sharing" now!!!</h3>
+                    <h3> DATA Crawling: </h3>
+                    <h4>{{title}}</h4>
                     <p> Parapgraphs :</p>
                     <div> {{content}}</div>
                     <br>
@@ -26,18 +30,6 @@
             </form>
         </div>
 
-
-        <div class="col-md-3">
-            <form class="form=group" action="{% url 'create_article' %}", method="POST">
-                {% csrf_token %}
-                <br><br>
-                <p>Embedded Data:
-                    <input type="submit" class="btn btn-primary btn-sm" name="submit">
-                </p>
-
-                <!-- output -->
-            </form>
-        </div>
     </div>
 </div>
 

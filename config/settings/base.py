@@ -3,22 +3,14 @@ import os
 import django_heroku
 import mimetypes
 import cloudinary
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 
 ALLOWED_HOSTS = []
-
-
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -144,8 +136,8 @@ MEDIA_URL = '/media/'
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'horiwebapp',
-    'API_KEY': os.getenv('CLOUDINARY_STORAGE_API_KEY'),
-    'API_SECRET': os.getenv('CLOUDINARY_STORAGE_API_SECRET'),
+    'API_KEY': os.environ.get('CLOUDINARY_STORAGE_API_KEY'),
+    'API_SECRET': os.environ.get('CLOUDINARY_STORAGE_API_SECRET'),
     # 'STATICFILES_MANIFEST_ROOT': os.path.join(BASE_DIR, 'staticfiles')
 }
 
@@ -173,10 +165,19 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'horizontaldjango@gmail.com'
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
-SOCIAL_AUTH_GITHUB_KEY =  os.getenv('SOCIAL_AUTH_GITHUB_KEY')
-SOCIAL_AUTH_GITHUB_SECRET =  os.getenv('SOCIAL_AUTH_GITHUB_SECRET')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+SOCIAL_AUTH_GITHUB_KEY =  os.environ.get('SOCIAL_AUTH_GITHUB_KEY')
+SOCIAL_AUTH_GITHUB_SECRET =  os.environ.get('SOCIAL_AUTH_GITHUB_SECRET')
 
+# API_URL = "http://127.0.0.1:8000/api/view_post/"
+# API_USER = "horizontal"
+# API_PASSWORD = "Winter20!"
+
+
+
+API_URL = "https://horiwebapp.herokuapp.com/api/view_post/"
+API_USER = "horizontal"
+API_PASSWORD = "Winter20!"
 
 
 mimetypes.add_type("application/javascript", ".js", True)

@@ -12,8 +12,6 @@
 
 
        <ul class="nav navbar-nav ml-auto mr-4">
-        <a href="/#" class="nav-link mr-3"><i class="fa fa-search"></i> Search</a>
-        
         {% if user.is_authenticated %}
         <li class="nav-item dropdown pr-3">
           <strong>{{ user.first_name|title }} {{ user.last_name|title }}</strong> 
